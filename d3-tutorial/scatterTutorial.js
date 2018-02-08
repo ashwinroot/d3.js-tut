@@ -10,15 +10,23 @@ var yVal = vals[1]; // Value to plot on y-axis
 
 
 // set the dimensions and margins of the graph
-
+var margin= {top:20, right:20, bottim:30, left:50};
+var width = 960 - margin.left - margin.right;
+var height = 500 - margin.top - margin.bottom;
 
 // set the ranges
+var x = d3.scaleLinear()
+    .domain([, ])
+    .range([0,width ]);
 
+var y = d3.scaleLinear()
+    .domain([, ])
+    .range([ height , 0 ]);  //flipping becasue the start point on left top is (0,0)
 
-// append the svg obgect to the body of the page
+// append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-
+var svg = d3.select("body").append("svg");
 
 // add the text labels
 
@@ -27,7 +35,7 @@ var yVal = vals[1]; // Value to plot on y-axis
 
 
   // Scale the range of the data
-      
+
   // Add the scatterplot points
 
   // Add the X Axis
