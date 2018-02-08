@@ -10,9 +10,10 @@ var yVal = vals[1]; // Value to plot on y-axis
 
 
 // set the dimensions and margins of the graph
-var margin= {top:20, right:20, bottim:30, left:50};
+var margin= {top:20, right:20, bottom:30, left:50};
 var width = 960 - margin.left - margin.right;
 var height = 500 - margin.top - margin.bottom;
+
 
 // set the ranges
 var x = d3.scaleLinear()
@@ -26,10 +27,20 @@ var y = d3.scaleLinear()
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("body").append("svg");
+var svg = d3.select("body")
+            .append("svg")
+            .attr("width",width + margin.left + margin.right)
+            .attr("height",height + margin.top + margin.bottom)
+            .append("g")  //regular graphic operation
+            .attr("transform","translate("+margin.left + ","+margin.top +")");
+
 
 // add the text labels
 
+node.append("text")
+    .attr("dx",12)
+    .attr("dy",".35em")
+    .text(function(d) {return d.name});
 
 // Get the data
 
