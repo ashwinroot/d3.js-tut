@@ -23,7 +23,7 @@ var x = d3.scaleLinear()
 var y = d3.scaleLinear()
     .domain([, ])
     .range([ height , 0 ]);  //flipping becasue the start point on left top is (0,0)
-
+å
 // append the svg object to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
