@@ -35,23 +35,26 @@ var svg = d3.select("body")
             .attr("transform","translate("+margin.left + ","+margin.top +")");
 
 
-// add the text labels
-
-node.append("text")
-    .attr("dx",12)
-    .attr("dy",".35em")
-    .text(function(d) {return d.name});
-
 // Get the data
+d3.csv('shakespeare_top100.csv', function(error, data) {
+    if(error) throw error;
+    console.log(data);
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d[xVal]; }));
+    y.domain([0, d3.max(data, function(d) { return d[yVal]; })]);
+
+    // Add the scatterplot points
+    svg.selectAll("circle")
+       .data(data)
+       .enter()
+       .append("circle");
+    // Add the X Axis
+
+    // Add the Y Axis
+});
 
 
-  // Scale the range of the data
 
-  // Add the scatterplot points
-
-  // Add the X Axis
-
-  // Add the Y Axis
 
 
 // A function to retrieve the next value in the vals list
